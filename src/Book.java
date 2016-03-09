@@ -34,6 +34,15 @@ public class Book {
 		System.out.printf("Author: %s;\nTitle: %s;\nDescription: %s;\n", author, title, description);
 
 	}
+	
+	public boolean getIsInStock()
+	{
+		return isInStock;
+	}
+	public void setIsInStock(boolean _isInStock)
+	{
+		isInStock = _isInStock;
+	}
 
 	public String getAuthor()
 	{
