@@ -6,19 +6,18 @@ public class BookApplication {
 	{	
 		Scanner sc = new Scanner(System.in);
 		String _sku = "";
-		Book _book = new Book();
-		//BookDb _bookDb = new BookDb();
 		
 		System.out.print("Please enter the SKU: ");
 		_sku = sc.next();
-		_book = BookDb.getBookFromDb(_sku);
-		System.out.println("This book's SKU is: " + _book.getSku());
 		
+		Book _book = BookDb.getBookFromDb(_sku);
+		System.out.println("This book's SKU is: " + _book.getSku());
 		System.out.printf("Author: %s;\nTitle: %s;\nDescription: %s;\nPrice: %.2f\n", 
 				_book.getAuthor(), _book.getTitle(), _book.getDescription(), _book.getPrice());	
-
-
+		
+		sc.close();
 	}
+	
 	public static double getBookPrice(Book _myBook)
 	{
 		if(_myBook.getIsInStock() == true)

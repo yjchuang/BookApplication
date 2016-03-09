@@ -28,11 +28,12 @@ public class Book {
 		isInStock = _isInStock;
 	}
 
-	public void getDisplayText()
+	public String getDisplayText()
 	{
 		String author = getAuthor();
 		String title = getTitle();
 		String description = getDescription();
+		return (author + title + description);
 	}
 	
 	public boolean getIsInStock()
