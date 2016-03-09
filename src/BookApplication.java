@@ -1,28 +1,24 @@
-
+import java.util.Scanner;
 
 public class BookApplication {
 
 	public static void main(String[] args) 
-	{
-		Book[] books = new Book[10];
-		double sumOfBooks = 0.0;
+	{	
+		Scanner sc = new Scanner(System.in);
+		String _sku = "";
+		Book _book = new Book();
+		//BookDb _bookDb = new BookDb();
 		
-		books[0] = new Book("Where the Red Firm Grow", "Peter Pan", "A good book", 20.00, true);
-		books[1] = new Book("Over the other Side", "Peter Jonston", "A good book", 20.00, false);
-		books[2] = new Book("Barnyard Dance", "Sandra Boyton", "A good book", 20.00, true);
-		books[3] = new Book("Hippo Party", "Sandra Boyton", "A good book", 20.00, true);
-		books[4] = new Book("First Thanksgiving", "No Name", "A good book", 20.00, true);
-		books[5] = new Book("Second Thanksgiving", "No Name", "A good book", 20.00, true);
-		books[6] = new Book("Last Thanksgiving", "No Name", "A good book", 20.00, false);
+		System.out.print("Please enter the SKU: ");
+		_sku = sc.next();
+		_book = BookDb.getBookFromDb(_sku);
+		System.out.println("This book's SKU is: " + _book.getSku());
 		
-		for (int i=0; i<5; i++)
-		{
-			sumOfBooks += getBookPrice(books[i]);
-			
-		}
-		System.out.println("Total price for your 5 books are: " + sumOfBooks);
+		System.out.printf("Author: %s;\nTitle: %s;\nDescription: %s;\nPrice: %.2f\n", 
+				_book.getAuthor(), _book.getTitle(), _book.getDescription(), _book.getPrice());	
+
+
 	}
-	
 	public static double getBookPrice(Book _myBook)
 	{
 		if(_myBook.getIsInStock() == true)

@@ -1,5 +1,6 @@
 
 public class Book {
+	private String sku;
 	private String title;
 	private String author;
 	private String description;
@@ -8,6 +9,7 @@ public class Book {
 
 	public Book()
 	{
+		sku = "";
 		title = "";
 		author = "";
 		description = "";
@@ -15,9 +17,10 @@ public class Book {
 		isInStock = true;
 	}
 
-	public Book(String _title, String _author, String _description,
+	public Book(String _sku, String _title, String _author, String _description,
 			double _price, boolean _isInStock)
 	{
+		sku = _sku;
 		title = _title;
 		author = _author;
 		description = _description;
@@ -30,9 +33,6 @@ public class Book {
 		String author = getAuthor();
 		String title = getTitle();
 		String description = getDescription();
-
-		System.out.printf("Author: %s;\nTitle: %s;\nDescription: %s;\n", author, title, description);
-
 	}
 	
 	public boolean getIsInStock()
@@ -42,6 +42,15 @@ public class Book {
 	public void setIsInStock(boolean _isInStock)
 	{
 		isInStock = _isInStock;
+	}
+	
+	public String getSku()
+	{
+		return sku;
+	}
+	public void setSku(String _sku)
+	{
+		sku = _sku;
 	}
 
 	public String getAuthor()
